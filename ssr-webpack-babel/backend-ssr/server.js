@@ -9,13 +9,13 @@ import App from '../frontend-ssr/src/App'
 
 const process = require('process')
 
-const { PORT = 3000, NODE_ENV } = process.env
+const { PORT = 3000, NODE_ENV = 'development' } = process.env
 
 const app = express()
 
 app.get('/', (req, res) => {
   const htmlApp = ReactDOMServer.renderToString(<App />)
-  const indexFile = path.resolve('./frontend-ssr/public/index.html')
+  const indexFile = path.resolve('./build-ssr/index.html')
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       console.log(err)
@@ -25,7 +25,8 @@ app.get('/', (req, res) => {
   })
 })
 
-app.use(express.static('ssr-webpack-babel/frontend-ssr/public'))
+app.use(express.static('./frontend-ssr/public'))
+app.use(express.static(path.join(__dirname, '../build-ssr')))
 
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}, env: ${NODE_ENV}`)
