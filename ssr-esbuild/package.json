@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@babel/preset-flow": "^7.21.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+  },
+  "name": "ssr-webpack-babel",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "server-part": "",
+    "dev:build-server": "",
+    "dev:start-server": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
