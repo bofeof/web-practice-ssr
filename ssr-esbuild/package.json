@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@babel/preset-flow": "^7.21.4",
     "cross-env": "^7.0.3",
     "esbuild": "0.17.17",
     "express": "^4.18.2",
@@ -12,9 +11,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev:build-client": "esbuild frontend-ssr/src/App.js --bundle --loader:.js=jsx --outfile=build-ssr/client.js",
-    "dev:build-server": "esbuild backend-ssr/server.js --bundle --loader:.js=jsx --platform=node --outfile=build-ssr/server.js",
-    "dev:build": "npm run dev:build-client && dev:build-server"
+    "dev:build-client": "esbuild frontend-ssr/src/index.js --bundle --outfile=dist/client.js --loader:.js=jsx",
+    "dev:build-server": "esbuild backend-ssr/server.js --bundle --loader:.js=jsx --outfile=build/server.js --platform=node",
+    "build": "npm run dev:build-client --watch && npm run dev:build-server --watch",
+    "start:server": "node build/server.js",
+    "start":"npm run build && npm run start:server"
   },
   "keywords": [],
   "author": "",

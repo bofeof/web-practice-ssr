@@ -15,7 +15,7 @@ const app = express()
 
 app.get('/', (req, res) => {
   const htmlApp = ReactDOMServer.renderToString(<App />)
-  const indexFile = path.resolve('./build-ssr/index.html')
+  const indexFile = path.resolve('./frontend-ssr/public/index.html')
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       console.log(err)
@@ -23,11 +23,13 @@ app.get('/', (req, res) => {
     }
     res.send(data.replace('<div id="root"></div>', `<div id="root">${htmlApp}</div>`))
   })
-})
+});
 
-app.use(express.static('./frontend-ssr/public'))
-app.use(express.static(path.join(__dirname, '../build-ssr')))
+
+app.use(express.static(path.resolve(__dirname, ".", "../dist")))
+
 
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}, env: ${NODE_ENV}`)
+  console.log(path.resolve(__dirname, ".", "../dist"))
 })
