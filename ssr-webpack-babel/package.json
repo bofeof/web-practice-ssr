@@ -33,7 +33,8 @@
   "scripts": {
     "server-part": "",
     "dev:build-server": "webpack --mode=development -w",
-    "dev:start-server": "nodemon ./build-ssr/server.js"
+    "dev:start-server": "nodemon ./build-ssr/server.js",
+    "dev": "npm-run-all --parallel dev:build-server dev:start-server"
   },
   "keywords": [],
   "author": "",
