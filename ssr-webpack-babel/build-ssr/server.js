@@ -38,18 +38,29 @@ eval("\n\n/**\n * Expose `arrayFlatten`.\n */\nmodule.exports = arrayFlatten\n\n
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.node.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _frontend_ssr_src_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../frontend-ssr/src/App */ \"./frontend-ssr/src/App.js\");\n\n\n\n\n\n\nvar process = __webpack_require__(/*! process */ \"process\");\nvar _process$env = process.env,\n  _process$env$PORT = _process$env.PORT,\n  PORT = _process$env$PORT === void 0 ? 3000 : _process$env$PORT,\n  _process$env$NODE_ENV = _process$env.NODE_ENV,\n  NODE_ENV = _process$env$NODE_ENV === void 0 ? 'development' : _process$env$NODE_ENV;\nvar app = express__WEBPACK_IMPORTED_MODULE_4___default()();\napp.get('/', function (req, res) {\n  var htmlApp = react_dom_server__WEBPACK_IMPORTED_MODULE_2__.renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_frontend_ssr_src_App__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null));\n  var indexFile = path__WEBPACK_IMPORTED_MODULE_0___default().resolve('./build-ssr/index.html');\n  fs__WEBPACK_IMPORTED_MODULE_1___default().readFile(indexFile, 'utf8', function (err, data) {\n    if (err) {\n      console.log(err);\n      return res.status(500).send({\n        error: err\n      });\n    }\n    res.send(data.replace('<div id=\"root\"></div>', \"<div id=\\\"root\\\">\".concat(htmlApp, \"</div>\")));\n  });\n});\napp.use(express__WEBPACK_IMPORTED_MODULE_4___default()[\"static\"]('./frontend-ssr/public'));\napp.use(express__WEBPACK_IMPORTED_MODULE_4___default()[\"static\"](path__WEBPACK_IMPORTED_MODULE_0___default().join(__dirname, '../build-ssr')));\napp.listen(PORT, function () {\n  console.log(\"server is listening on port \".concat(PORT, \", env: \").concat(NODE_ENV));\n});\n\n//# sourceURL=webpack://ssr-webpack-babel/./backend-ssr/server.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.node.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _frontend_ssr_src_components_App_App_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../frontend-ssr/src/components/App/App.js */ \"./frontend-ssr/src/components/App/App.js\");\n\n\n\n\n\n\nvar process = __webpack_require__(/*! process */ \"process\");\nvar _process$env = process.env,\n  _process$env$PORT = _process$env.PORT,\n  PORT = _process$env$PORT === void 0 ? 3000 : _process$env$PORT,\n  _process$env$NODE_ENV = _process$env.NODE_ENV,\n  NODE_ENV = _process$env$NODE_ENV === void 0 ? 'development' : _process$env$NODE_ENV;\nvar app = express__WEBPACK_IMPORTED_MODULE_4___default()();\napp.get('/', function (req, res) {\n  var htmlApp = react_dom_server__WEBPACK_IMPORTED_MODULE_2__.renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement(_frontend_ssr_src_components_App_App_js__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null));\n  var indexFile = path__WEBPACK_IMPORTED_MODULE_0___default().resolve('./build-ssr/index.html');\n  fs__WEBPACK_IMPORTED_MODULE_1___default().readFile(indexFile, 'utf8', function (err, data) {\n    if (err) {\n      console.log(err);\n      return res.status(500).send({\n        error: err\n      });\n    }\n    res.send(data.replace('<div id=\"root\"></div>', \"<div id=\\\"root\\\">\".concat(htmlApp, \"</div>\")));\n  });\n});\napp.use(express__WEBPACK_IMPORTED_MODULE_4___default()[\"static\"]('./frontend-ssr/public'));\napp.use(express__WEBPACK_IMPORTED_MODULE_4___default()[\"static\"](path__WEBPACK_IMPORTED_MODULE_0___default().join(__dirname, '../build-ssr')));\napp.listen(PORT, function () {\n  console.log(\"server is listening on port \".concat(PORT, \", env: \").concat(NODE_ENV));\n});\n\n//# sourceURL=webpack://ssr-webpack-babel/./backend-ssr/server.js?");
 
 /***/ }),
 
-/***/ "./frontend-ssr/src/App.js":
-/*!*********************************!*\
-  !*** ./frontend-ssr/src/App.js ***!
-  \*********************************/
+/***/ "./frontend-ssr/src/components/App/App.js":
+/*!************************************************!*\
+  !*** ./frontend-ssr/src/components/App/App.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }\nfunction _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : \"undefined\" != typeof Symbol && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i[\"return\"] && (_r = _i[\"return\"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\nfunction App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),\n    _useState2 = _slicedToArray(_useState, 2),\n    counter = _useState2[0],\n    setCounter = _useState2[1];\n  function handleClick() {\n    window.alert('Oh wow');\n  }\n  function handleSetCounter() {\n    setCounter(function (prev) {\n      return prev + 1;\n    });\n  }\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Hi\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    type: \"button\",\n    onClick: handleClick,\n    style: {\n      height: 50,\n      width: 100\n    }\n  }, \"Click me\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, counter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    type: \"button\",\n    onClick: handleSetCounter,\n    style: {\n      height: 50,\n      width: 100\n    }\n  }, \"add\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ \"./frontend-ssr/src/components/App/App.css\");\n/* harmony import */ var _ImgComponent_ImgComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ImgComponent/ImgComponent */ \"./frontend-ssr/src/components/ImgComponent/ImgComponent.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }\nfunction _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : \"undefined\" != typeof Symbol && arr[Symbol.iterator] || arr[\"@@iterator\"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i[\"return\"] && (_r = _i[\"return\"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\nfunction App() {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),\n    _useState2 = _slicedToArray(_useState, 2),\n    counter = _useState2[0],\n    setCounter = _useState2[1];\n  function handleClick() {\n    window.alert('Oh wow');\n  }\n  function handleSetCounter() {\n    setCounter(function (prev) {\n      return prev + 1;\n    });\n  }\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"app\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"app__header\"\n  }, \"Hi, the main aim of this app is to check js-scripts, state-value and building of SSR: webpack and esbuild\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    className: \"app__button\",\n    type: \"button\",\n    onClick: handleClick\n  }, \"Show message\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, counter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    className: \"app__button\",\n    type: \"button\",\n    onClick: handleSetCounter\n  }, \"Counter (check react state)\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ImgComponent_ImgComponent__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/components/App/App.js?");
+
+/***/ }),
+
+/***/ "./frontend-ssr/src/components/ImgComponent/ImgComponent.js":
+/*!******************************************************************!*\
+  !*** ./frontend-ssr/src/components/ImgComponent/ImgComponent.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ImgComponent)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _images_image_example_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/image-example.jpg */ \"./frontend-ssr/src/images/image-example.jpg\");\n/* harmony import */ var _ImgComponent_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImgComponent.css */ \"./frontend-ssr/src/components/ImgComponent/ImgComponent.css\");\n\n\n\nfunction ImgComponent() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"img-block\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"Image test\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    className: \"img-block__img\",\n    alt: \"test img\",\n    src: _images_image_example_jpg__WEBPACK_IMPORTED_MODULE_1__\n  }));\n}\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/components/ImgComponent/ImgComponent.js?");
 
 /***/ }),
 
@@ -898,6 +909,28 @@ eval("var path = __webpack_require__(/*! path */ \"path\");\nvar fs = __webpack_
 
 /***/ }),
 
+/***/ "./frontend-ssr/src/components/App/App.css":
+/*!*************************************************!*\
+  !*** ./frontend-ssr/src/components/App/App.css ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/components/App/App.css?");
+
+/***/ }),
+
+/***/ "./frontend-ssr/src/components/ImgComponent/ImgComponent.css":
+/*!*******************************************************************!*\
+  !*** ./frontend-ssr/src/components/ImgComponent/ImgComponent.css ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/components/ImgComponent/ImgComponent.css?");
+
+/***/ }),
+
 /***/ "./node_modules/negotiator/index.js":
 /*!******************************************!*\
   !*** ./node_modules/negotiator/index.js ***!
@@ -1338,6 +1371,17 @@ eval("/*!\n * vary\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT
 
 /***/ }),
 
+/***/ "./frontend-ssr/src/images/image-example.jpg":
+/*!***************************************************!*\
+  !*** ./frontend-ssr/src/images/image-example.jpg ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("module.exports = __webpack_require__.p + \"images/14ecf8ebd674c27f5a3c.jpg\";\n\n//# sourceURL=webpack://ssr-webpack-babel/./frontend-ssr/src/images/image-example.jpg?");
+
+/***/ }),
+
 /***/ "async_hooks":
 /*!******************************!*\
   !*** external "async_hooks" ***!
@@ -1712,6 +1756,11 @@ eval("module.exports = JSON.parse('{\"100\":\"Continue\",\"101\":\"Switching Pro
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
