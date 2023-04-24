@@ -1,35 +1,34 @@
-import path from 'path'
-import fs from 'fs'
+require('dotenv').config();
 
-import ReactDOMServer from 'react-dom/server'
-import React from 'react'
-import express from 'express'
+import path from 'path';
+import fs from 'fs';
 
-import App from '../frontend-ssr/src/App'
+import ReactDOMServer from 'react-dom/server';
+import React from 'react';
+import express from 'express';
 
-const process = require('process')
+import App from '../frontend-ssr/src/components/App/App';
 
-const { PORT = 3000, NODE_ENV = 'development' } = process.env
+const process = require('process');
 
-const app = express()
+const { PORT = 3000, NODE_ENV = 'development' } = process.env;
+
+const app = express();
 
 app.get('/', (req, res) => {
-  const htmlApp = ReactDOMServer.renderToString(<App />)
-  const indexFile = path.resolve('./frontend-ssr/public/index.html')
+  const htmlApp = ReactDOMServer.renderToString(<App />);
+  const indexFile = path.resolve('./frontend-ssr/public/index.html');
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
-      console.log(err)
-      return res.status(500).send({ error: err })
+      console.log(err);
+      return res.status(500).send({ error: err });
     }
-    res.send(data.replace('<div id="root"></div>', `<div id="root">${htmlApp}</div>`))
-  })
+    res.send(data.replace('<div id="root"></div>', `<div id="root">${htmlApp}</div>`));
+  });
 });
 
-
-app.use(express.static(path.resolve(__dirname, ".", "../dist")))
-
+app.use(express.static(path.resolve(__dirname, '.', '../dist')));
 
 app.listen(PORT, () => {
-  console.log(`server is listening on port ${PORT}, env: ${NODE_ENV}`)
-  console.log(path.resolve(__dirname, ".", "../dist"))
-})
+  console.log(`server is listening on port ${PORT}, env: ${NODE_ENV}`);
+});

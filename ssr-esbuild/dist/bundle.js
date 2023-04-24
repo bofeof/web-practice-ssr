@@ -1096,7 +1096,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect(create, deps) {
+          function useEffect2(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1878,7 +1878,7 @@
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect;
+          exports.useEffect = useEffect2;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -2382,9 +2382,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React3 = require_react();
+          var React4 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React4.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3989,7 +3989,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React3.Children.forEach(props.children, function(child) {
+                  React4.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12436,7 +12436,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React3.Component().refs;
+          var emptyRefsObject = new React4.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -23508,13 +23508,29 @@
   });
 
   // frontend-ssr/src/index.js
-  var import_react2 = __toESM(require_react());
+  var import_react3 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
-  // frontend-ssr/src/App.js
+  // frontend-ssr/src/components/App/App.js
+  var import_react2 = __toESM(require_react());
+
+  // frontend-ssr/src/components/ImgComponent/ImgComponent.js
   var import_react = __toESM(require_react());
+
+  // frontend-ssr/src/images/image-example.jpg
+  var image_example_default = "./image-example-K45U53AG.jpg";
+
+  // frontend-ssr/src/components/ImgComponent/ImgComponent.js
+  function ImgComponent() {
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "img-block" }, /* @__PURE__ */ import_react.default.createElement("p", null, "Image test"), /* @__PURE__ */ import_react.default.createElement("img", { className: "img-block__img", alt: "test img", src: image_example_default }));
+  }
+
+  // frontend-ssr/src/components/App/App.js
   function App() {
-    const [counter, setCounter] = (0, import_react.useState)(0);
+    const [counter, setCounter] = (0, import_react2.useState)(0);
+    (0, import_react2.useEffect)(() => {
+      setCounter(0);
+    }, []);
     function handleClick() {
       window.alert("Oh wow");
     }
@@ -23523,14 +23539,14 @@
         return prev + 1;
       });
     }
-    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Hi"), /* @__PURE__ */ import_react.default.createElement("button", { type: "button", onClick: handleClick, style: { height: 50, width: 100 } }, "Click me"), /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("p", null, counter), /* @__PURE__ */ import_react.default.createElement("button", { type: "button", onClick: handleSetCounter, style: { height: 50, width: 100 } }, "add")), /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null));
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "app" }, /* @__PURE__ */ import_react2.default.createElement("h1", { className: "app__header" }, "Hi, the main aim of this app is to check js-scripts, state-value and building of SSR: esbuild"), /* @__PURE__ */ import_react2.default.createElement("button", { className: "app__button", type: "button", onClick: handleClick }, "Show message"), /* @__PURE__ */ import_react2.default.createElement("div", null, /* @__PURE__ */ import_react2.default.createElement("p", null, counter), /* @__PURE__ */ import_react2.default.createElement("button", { className: "app__button", type: "button", onClick: handleSetCounter }, "Counter (check react state)")), /* @__PURE__ */ import_react2.default.createElement(ImgComponent, null));
   }
   var App_default = App;
 
   // frontend-ssr/src/index.js
   (0, import_client.hydrateRoot)(
     document.getElementById("root"),
-    /* @__PURE__ */ import_react2.default.createElement(import_react2.default.StrictMode, null, /* @__PURE__ */ import_react2.default.createElement(App_default, null))
+    /* @__PURE__ */ import_react3.default.createElement(import_react3.default.StrictMode, null, /* @__PURE__ */ import_react3.default.createElement(App_default, null))
   );
 })();
 /*! Bundled license information:

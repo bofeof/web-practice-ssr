@@ -31,13 +31,18 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "server-part": "",
-    "dev:build-server": "webpack --mode=development -w",
+    "build-clean": "rimraf ./build-ssr",
+
+    "dev:build-server": "npm run build-clean && webpack --mode=development -w",
     "dev:start-server": "nodemon ./build-ssr/server.js",
-    "dev": "npm-run-all --parallel dev:build-server dev:start-server"
+    "dev": "npm-run-all --parallel dev:build-server dev:start-server",
+
+    "prod:build-server": "npm run build-clean && webpack --mode=production",
+    "prod:start-server": "node ./build-ssr/server.js",
+    "prod": "npm-run-all --parallel prod:build-server prod:start-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "bofeof",
   "license": "ISC",
-  "description": ""
+  "description": "simple React-app example with SSR (webpack+babel)"
 }

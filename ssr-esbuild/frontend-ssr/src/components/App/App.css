@@ -1,0 +1,25 @@
+.app {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+.app__header {
+  color: blue;
+  font-size: 30px;
+  width: 400px;
+}
+
+.app__button {
+  height: 90px;
+  width: 150px;
+  border: none;
+  border-radius: 4px;
+  background-color: cadetblue;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.app__button:hover {
+  opacity: 0.5;
+}

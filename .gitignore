@@ -21,8 +21,10 @@ node_modules
 # testing
 coverage
 
-# production
+# production and building
 build
+build-ssr
+dist
 
 # misc
 .DS_Store
