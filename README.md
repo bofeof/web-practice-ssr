@@ -5,7 +5,7 @@ This project contains two folders with different kind of building app. There two
 This dumb-app includes two components, styles, state and js-scripts (for checking the building completely).
 
 ps: First of all, I was wondering what SSR is
-then I decided to try to write a simple app to study this issue, because reading only articles is not very interesting
+then I decided to create a simple app to study this issue, because reading only articles is not very interesting.
 
 ### Techs
 
