@@ -16,14 +16,13 @@
     "dev:build-client": "esbuild frontend-ssr/src/index.js --bundle --outfile=dist/bundle.js --loader:.js=jsx --loader:.jpg=file --watch",
     "dev:build-server": "esbuild backend-ssr/server.js --bundle --loader:.js=jsx --loader:.jpg=file --outfile=build/server.js --platform=node --watch",
     "dev:build": "npm run build-clean && npm-run-all --parallel dev:build-client dev:build-server",
-    "dev:start-server": "nodemon build/server.js",
-    "dev:start": "npm-run-all --parallel dev:build dev:start-server",
+    "dev:start": "nodemon build/server.js",
 
     "prod:build-client": "esbuild frontend-ssr/src/index.js --bundle --outfile=dist/bundle.js --loader:.js=jsx --loader:.jpg=file",
     "prod:build-server": "esbuild backend-ssr/server.js --bundle --loader:.js=jsx --loader:.jpg=file --outfile=build/server.js --platform=node",
     "prod:build": "npm run build-clean && npm-run-all --parallel prod:build-client prod:build-server",
     "prod:start-server": "node build/server.js",
-    "prod:start": "npm-run-all --parallel prod:build prod:start-server"
+    "prod:start": "npm run prod:build && npm run prod:start-server"
 
   },
   "keywords": [],
